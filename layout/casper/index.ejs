@@ -11,7 +11,11 @@
       <% if (post.excerpt){ %>
         <%- post.excerpt %>
       <% } else { %>
-        <%- post.content.replace(/<(?:.|\n)*?>/gm, '').substr(0, 220) %>
+        <% for(var text=post.content.replace(/<(?:.|\n)*?>/gm, ''), i=0; i<1; i++) { %>
+
+            <%- text.substr(0, Math.min(220, text.substr(0, 220).lastIndexOf(" "))) %>...
+            
+        <% } %>
       <% } %>
       </p>
       <% if (theme.excerpt_link) { %>
@@ -27,4 +31,5 @@
     <span class="page-number">Page <%- page.current %> of <%- page.total %></span>
     <% if (page.next) { %><a class="older-posts" href="<%- url_for(page.next_link) %>">Older Posts →</a><% } %>
   </nav>
+  <%- partial('post/author') %> 
 </main>

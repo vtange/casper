@@ -1,0 +1,14 @@
+<header>
+    <!--canvas element for post.headercanvas-->
+    <!--img element with post.headerimg, onload = canvas hide-->
+    <!-- refer to arch-design for image onload optimization -->
+  <% if (config.markdown_edit == true) { %>
+  <div id="orig-md-editor">
+    <button id="markdown-edit-button">Edit</button>
+    <div id="orig-md" contenteditable="true">
+          <%- post.original  %>
+    </div>
+    <script type="text/javascript" src="<%- config.root%>js/typewriter.js"></script>
+  </div>
+  <% } %>
+</header>
