@@ -421,6 +421,19 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
+.post-head {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 60%;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #fff;
+    background: #303538 no-repeat center center;
+    background-size: cover;
+}
+
+
 .post {
     position: relative;
     width:80%;
@@ -575,50 +588,23 @@ margin on the iframe, cause it breaks stuff. */
     height: auto;
 }
 
-/* The author credit area after the post */
-.post-footer {
-    position: relative;
-    margin: 4rem 0 0 0;
-    padding: 4rem 0 0 0;
-    border-top: #EBF2F6 1px solid;
-}
-
-.post-footer h4 {
-    font-size: 1.8rem;
-    margin: 0;
-}
-
-.post-footer p {
-    margin: 1rem 0;
-    font-size: 1.4rem;
-    line-height: 1.6em;
-}
-
-/* Create some space to the right for the share links */
-.post-footer .author {
-    margin-right: 180px;
-}
-
 /* Drop the share links in the space to the right.
    Doing it like this means it's easier for the author bio
    to be flexible at smaller screen sizes while the share
    links remain at a fixed width the whole time */
-.post-footer .share {
-    position: absolute;
-    top: 4rem;
-    right: 0;
-    width: 140px;
+.site-footer .share {
+    position: relative;
 }
 
-.post-footer .share a {
-    font-size: 1.8rem;
+.site-footer .share a {
+    font-size: 3.2rem;
     display: inline-block;
-    margin: 1.4rem 1.6rem 1.6rem 0;
+    margin: 0rem 1.6rem;
     color: #BBC7CC;
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
+.site-footer .share a:hover {
     color: #50585D;
 }
 
@@ -833,7 +819,8 @@ pre .chunk {
 
 /* Push the previous/next links out to the left/right */
 .older-posts,
-.newer-posts {
+.newer-posts,
+#markdown-edit-button {
     position: absolute;
     display: inline-block;
     padding: 0 15px;
@@ -978,6 +965,26 @@ pre .chunk {
     top: -33px;
 }
 
+#orig-md-editor {
+    position: fixed;
+    bottom:0;
+    z-index: 10;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #303538;
+}
+
+#orig-md-editor > button {
+    right:0;
+    height:40px;
+    width:100px;
+    border-radius: 3px;
+}
+
+#orig-md {
+    color: #fff;
+    padding: 30px;
+}
 
 /* ==========================================================================
    9. Media Queries - Smaller than 900px
