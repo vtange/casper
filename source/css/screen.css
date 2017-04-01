@@ -239,13 +239,16 @@ mark {
     background-color: #ffc336;
 }
 
-code, tt {
+.line {
+    color:white;
+}
+
+code, tt, #orig-md {
     padding: 1px 3px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
     border: 1px solid #E3EDF3;
-    background: #F7FAFB;
     border-radius: 2px;
 }
 
@@ -260,8 +263,7 @@ pre {
     font-size: 0.9em;
     white-space: pre;
     overflow: auto;
-    background: #F7FAFB;
-    border-radius: 3px;
+    background: rgba(48,53,56,0.9);
 }
 
 pre code, tt {
@@ -673,7 +675,7 @@ pre .comment,
 pre .template_comment,
 .diff pre .header,
 pre .javadoc {
-  color: #998;
+  color: #999;
   font-style: italic
 }
 
@@ -685,28 +687,28 @@ pre .winutils,
 pre .subst,
 pre .request,
 pre .status {
-  color: #333;
+  color: #ccc;
   font-weight: bold
 }
 
 pre .number,
 pre .hexcolor,
 .ruby pre .constant {
-  color: #099;
+  color: #0cc;
 }
 
 pre .string,
 pre .tag pre .value,
 pre .phpdoc,
 .tex pre .formula {
-  color: #d14
+  color: #f35
 }
 
 pre .title,
 pre .id,
 .coffeescript pre .params,
 .scss pre .preprocessor {
-  color: #900;
+  color: #c00;
   font-weight: bold
 }
 
@@ -721,7 +723,7 @@ pre .class pre .title,
 .haskell pre .type,
 .vhdl pre .literal,
 .tex pre .command {
-  color: #458;
+  color: #bcd;
   font-weight: bold
 }
 
@@ -729,18 +731,18 @@ pre .tag,
 pre .tag pre .title,
 pre .rules pre .property,
 .django pre .tag pre .keyword {
-  color: #000080;
+  color: #7777f7;
   font-weight: normal
 }
 
 pre .attribute,
 pre .variable,
 .lisp pre .body {
-  color: #008080
+  color: #77f7f7
 }
 
 pre .regexp {
-  color: #009926
+  color: #00ff26
 }
 
 pre .symbol,
@@ -748,13 +750,13 @@ pre .symbol,
 .lisp pre .keyword,
 .tex pre .special,
 pre .prompt {
-  color: #990073
+  color: #ff0073
 }
 
 pre .built_in,
 .lisp pre .title,
 .clojure pre .built_in {
-  color: #0086b3
+  color: #00f6d3
 }
 
 pre .preprocessor,
@@ -820,7 +822,7 @@ pre .chunk {
 /* Push the previous/next links out to the left/right */
 .older-posts,
 .newer-posts,
-#markdown-edit-button {
+#md-edit-button {
     position: absolute;
     display: inline-block;
     padding: 0 15px;
@@ -970,8 +972,9 @@ pre .chunk {
     bottom:0;
     z-index: 10;
     height: 300px;
-    overflow-y: scroll;
-    background-color: #303538;
+    width: 100%;
+    transform: translateY(260px);
+    background-color: rgba(48,53,56,0.9);
 }
 
 #orig-md-editor > button {
@@ -982,8 +985,8 @@ pre .chunk {
 }
 
 #orig-md {
-    color: #fff;
     padding: 30px;
+    color: #fff;
 }
 
 /* ==========================================================================
