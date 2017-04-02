@@ -31,5 +31,4 @@
     <span class="page-number">Page <%- page.current %> of <%- page.total %></span>
     <% if (page.next) { %><a class="older-posts" href="<%- url_for(page.next_link) %>">Older Posts →</a><% } %>
   </nav>
-  <%- partial('post/author') %> 
 </main>

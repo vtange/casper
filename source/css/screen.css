@@ -94,7 +94,7 @@ body {
     font-family: "Cabin", serif;
     font-size: 2.0rem;
     font-weight: 500;
-    line-height: 2.0em;
+    line-height: 3.0rem;
     color: #3A4145;
 }
 
@@ -378,19 +378,6 @@ margin on the iframe, cause it breaks stuff. */
     color: #fff;
     background: #303538 no-repeat center center;
     background-size: cover;
-}
-
-.blog-logo {
-    text-decoration: none;
-}
-
-/* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
-.blog-logo img {
-    display: block;
-    max-height: 100px;
-    width: auto;
-    margin: 0 auto;
-    line-height: 0;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -812,8 +799,7 @@ pre .chunk {
 
 /* Push the previous/next links out to the left/right */
 .older-posts,
-.newer-posts,
-#md-edit-button {
+.newer-posts {
     position: absolute;
     display: inline-block;
     padding: 0 15px;
@@ -867,118 +853,6 @@ pre .chunk {
 
 .site-footer a:hover {
     color: #50585D;
-}
-
-.poweredby .icon-ghost {
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.poweredby .icon-ghost:hover {
-    text-decoration: none;
-}
-
-.poweredby .icon-ghost:before {
-    font-size: 1rem;
-    margin-right: 0.2em;
-}
-
-/* The subscribe icon on the footer */
-.subscribe {
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    margin-left: -15px;
-    border: #EBF2F6 1px solid;
-    text-align: center;
-    line-height: 2.4rem;
-    border-radius: 50px;
-    background: #fff;
-    transition: box-shadow 0.5s;
-}
-
-/* The RSS icon, inserted via icon font */
-.subscribe:before {
-    color: #D2DEE3;
-    font-size: 10px;
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    font-weight: bold;
-    transition: color 0.5s ease;
-}
-
-/* Add a box shadow to on hover */
-.subscribe:hover {
-    box-shadow: rgba(0,0,0,0.05) 0 0 0 3px;
-    transition: box-shadow 0.25s;
-}
-
-.subscribe:hover:before {
-    color: #50585D;
-}
-
-/* CSS tooltip saying "Subscribe!" - initially hidden */
-.tooltip {
-    opacity:0;
-    display: inline-block;
-    padding: 4px 8px 5px 8px;
-    position:absolute;
-    top: -23px;
-    left: -21px;
-    color: rgba(255,255,255,0.9);
-    font-size: 1.1rem;
-    line-height: 1em;
-    text-align: center;
-    background: #50585D;
-    border-radius:20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    transition: opacity 0.3s ease, top 0.3s ease;
-}
-
-/* The little chiclet arrow under the tooltip, pointing down */
-.tooltip:after {
-    content:"";
-    border-width:5px 5px 0 5px;
-    border-style:solid;
-    border-color: #50585D transparent;
-    display:block;
-    position:absolute;
-    bottom:-4px;
-    left:50%;
-    margin-left:-5px;
-    z-index: 220;
-    width:0;
-}
-
-/* On hover, show the tooltip! */
-.subscribe:hover .tooltip {
-    opacity: 1;
-    top: -33px;
-}
-
-#orig-md-editor {
-    position: fixed;
-    bottom:0;
-    z-index: 10;
-    height: 300px;
-    width: 100%;
-    transform: translateY(260px);
-    background-color: rgba(48,53,56,0.9);
-}
-
-#orig-md-editor > button {
-    right:0;
-    height:40px;
-    width:100px;
-    border-radius: 3px;
-}
-
-#orig-md {
-    padding: 30px;
-    color: #fff;
 }
 
 /* ==========================================================================
@@ -1101,26 +975,6 @@ pre .chunk {
 
     .post-meta {
         font-size: 1.3rem;
-    }
-
-    .post-footer {
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .post-footer .author {
-        margin: 0 0 2rem 0;
-        padding: 0 0 1.6rem 0;
-        border-bottom: #EBF2F6 1px dashed;
-    }
-
-    .post-footer .share {
-        position: static;
-        width: auto;
-    }
-
-    .post-footer .share a {
-        margin: 1.4rem 0.8rem 0 0.8rem;
     }
 
     .older-posts,

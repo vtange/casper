@@ -1,8 +1,0 @@
-  <div id="orig-md-editor">
-    <button id="md-edit-button">Edit</button>
-    <div id="orig-md" contenteditable="true">
-          <!-- nl -><br>,  remove quotes -->
-          <%- post.original.replace(/\\n/g , "<br/>").substring(1,post.original.length-1)  %>
-    </div>
-    <script type="text/javascript" src="<%- config.root%>js/typewriter.js"></script>
-  </div>

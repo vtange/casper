@@ -1,4 +1,8 @@
 
 <footer class="site-footer">
+<% if (typeof page.title != 'undefined') { %>
       <%- partial('post/share') %>
+<% } else { %>
+      <%- partial('post/author') %> 
+<% } %>
 </footer>
