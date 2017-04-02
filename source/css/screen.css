@@ -107,6 +107,10 @@ body {
     color: #3A4145;
 }
 
+body.MuseoSlab500 {
+    font-family: "MuseoSlab500", serif;
+}
+
 ::-moz-selection {
     color: #222;
     background: #D6EDFF;
@@ -125,6 +129,15 @@ h4, h5, h6 {
     line-height: 1;
     margin-top: 0;
     font-family: sans-serif;
+}
+
+.MontserratBold h1,
+.MontserratBold h2,
+.MontserratBold h3,
+.MontserratBold h4,
+.MontserratBold h5,
+.MontserratBold h6 {
+    font-family: "MontserratBold", sans-serif;
 }
 
 h1 {
@@ -245,7 +258,7 @@ mark {
 
 code, tt, #orig-md {
     padding: 1px 3px;
-    font-family: Inconsolata, monospace, sans-serif;
+    font-family: monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
     border: 1px solid #E3EDF3;
@@ -259,7 +272,7 @@ pre {
     border: 1px solid #E3EDF3;
     width: 100%;
     padding: 10px;
-    font-family: Inconsolata, monospace, sans-serif;
+    font-family: monospace, sans-serif;
     font-size: 0.9em;
     white-space: pre;
     overflow: auto;
@@ -412,6 +425,10 @@ margin on the iframe, cause it breaks stuff. */
     text-shadow: 0 1px 6px rgba(0,0,0,0.1);
 }
 
+.MontserratBold .blog-title {
+    font-family: "MontserratBold", sans-serif;
+}
+
 .blog-description {
     margin: 0;
     font-size: 1.8rem;
@@ -420,6 +437,10 @@ margin on the iframe, cause it breaks stuff. */
     font-family: serif;
     letter-spacing: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.MuseoSlab500 .blog-description {
+    font-family: "MuseoSlab500", serif;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -485,6 +506,10 @@ margin on the iframe, cause it breaks stuff. */
     font-family: sans-serif;
     font-size: 1.5rem;
     color: #9EABB3;
+}
+
+.MontserratBold .post-meta {
+    font-family: "MontserratBold", sans-serif;
 }
 
 .post-meta a {
@@ -815,6 +840,10 @@ pre .chunk {
     text-align: center;
 }
 
+.MontserratBold .pagination {
+    font-family: "MontserratBold", sans-serif;
+}
+
 .pagination a {
     color: #9EABB3;
 }
@@ -866,6 +895,11 @@ pre .chunk {
     color: #BBC7CC;
     text-align: center;
     background: #F7FAFB;
+}
+
+
+.MontserratBold .site-footer {
+    font-family: "MontserratBold", sans-serif;
 }
 
 .site-footer a {
