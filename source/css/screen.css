@@ -41,16 +41,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'MontserratBold';
-    src: url('../fonts/MontserratBold.otf') format("opentype");
-}
-
-@font-face {
-    font-family: 'MuseoSlab500';
-    src: url('../fonts/MuseoSlab500.otf') format("opentype");
-}
-
 /* Apply these base styles to all icons */
 .icon-ghost:before,
 .icon-feed:before,
@@ -101,14 +91,11 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: serif;
+    font-family: "Cabin", serif;
     font-size: 2.0rem;
+    font-weight: 500;
     line-height: 2.0em;
     color: #3A4145;
-}
-
-body.MuseoSlab500 {
-    font-family: "MuseoSlab500", serif;
 }
 
 ::-moz-selection {
@@ -128,16 +115,7 @@ h4, h5, h6 {
     text-rendering: optimizeLegibility;
     line-height: 1;
     margin-top: 0;
-    font-family: sans-serif;
-}
-
-.MontserratBold h1,
-.MontserratBold h2,
-.MontserratBold h3,
-.MontserratBold h4,
-.MontserratBold h5,
-.MontserratBold h6 {
-    font-family: "MontserratBold", sans-serif;
+    font-family: "Biryani", sans-serif;
 }
 
 h1 {
@@ -421,12 +399,8 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 5rem;
     letter-spacing: -1px;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: "Biryani", sans-serif;
     text-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-
-.MontserratBold .blog-title {
-    font-family: "MontserratBold", sans-serif;
 }
 
 .blog-description {
@@ -434,13 +408,9 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 1.8rem;
     line-height: 1.5em;
     font-weight: 300;
-    font-family: serif;
+    font-family: "Cabin", serif;
     letter-spacing: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.15);
-}
-
-.MuseoSlab500 .blog-description {
-    font-family: "MuseoSlab500", serif;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -503,13 +473,9 @@ margin on the iframe, cause it breaks stuff. */
 .post-meta {
     display: inline-block;
     margin: 0 0 5px 0;
-    font-family: sans-serif;
+    font-family: "Biryani", sans-serif;
     font-size: 1.5rem;
     color: #9EABB3;
-}
-
-.MontserratBold .post-meta {
-    font-family: "MontserratBold", sans-serif;
 }
 
 .post-meta a {
@@ -834,14 +800,10 @@ pre .chunk {
     width: 80%;
     max-width: 700px;
     margin: 4rem auto;
-    font-family: sans-serif;
+    font-family: "Biryani", sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
-}
-
-.MontserratBold .pagination {
-    font-family: "MontserratBold", sans-serif;
 }
 
 .pagination a {
@@ -889,7 +851,7 @@ pre .chunk {
     margin: 8rem 0 0 0;
     padding: 4rem 0;
     border-top: #EBF2F6 1px solid;
-    font-family: sans-serif;
+    font-family: "Biryani", sans-serif;
     font-size: 1.3rem;
     line-height: 1.7em;
     color: #BBC7CC;
@@ -897,10 +859,6 @@ pre .chunk {
     background: #F7FAFB;
 }
 
-
-.MontserratBold .site-footer {
-    font-family: "MontserratBold", sans-serif;
-}
 
 .site-footer a {
     color: #BBC7CC;
