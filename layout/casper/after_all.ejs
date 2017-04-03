@@ -1,8 +1,8 @@
 <script type="text/javascript" src="<%- config.root%>js/index.js"></script>
-<% if (theme.google_analytics) { %>
+<% if (config.google_analytics) { %>
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '<%- theme.google_analytics %>']);
+    _gaq.push(['_setAccount', '<%- config.google_analytics %>']);
     _gaq.push(['_trackPageview']);
 
     (function() {

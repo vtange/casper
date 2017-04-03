@@ -1,4 +1,7 @@
 <section class="author">
+    <% if(config.avatar) { %>
+        <div class="avatar" style="background-image: url(<%- config.avatar %>)" ></div> 
+    <% } %>
     <h4><%- config.author %></h4>
-    <p><%- theme.bio %></p>
+    <p><%- config.bio %></p>
 </section>

@@ -399,12 +399,21 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .blog-logo {
-    display: inline-block;
     height:8rem;
     width:8rem;
+}
+
+.blog-logo, .avatar {
+    display: inline-block;
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 50%;
+}
+
+.avatar {
+    height:10rem;
+    width:10rem;
+    border: 1.6px inset #9BA7AC;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -481,59 +490,6 @@ margin on the iframe, cause it breaks stuff. */
     text-decoration: underline;
 }
 
-.user-meta {
-    position: relative;
-    padding: 0.3rem 40px 0 100px;
-    min-height: 77px;
-}
-
-.user-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.user-name {
-    display: block;
-    font-weight: bold;
-}
-
-.user-bio {
-    display: block;
-    max-width: 440px;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-}
-
-.publish-meta {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 4.3rem 0 4rem 0;
-    text-align: right;
-}
-
-.publish-heading {
-    display: block;
-    font-weight: bold;
-}
-
-.publish-date {
-    display: block;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-}
-
-.comments-area {
-    width: 80%;
-    max-width: 700px;
-    margin: 4rem auto;
-}
-
-#comment h1 a {
-    text-decoration: none;
-}
-
 /* ==========================================================================
    5. Single Post - When you click on an individual post
    ========================================================================== */
@@ -586,7 +542,7 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 3.2rem;
     display: inline-block;
     margin: 0rem 1.6rem;
-    color: #BBC7CC;
+    color: #9BA7AC;
     text-decoration: none;
 }
 
@@ -842,18 +798,18 @@ pre .chunk {
     position: relative;
     margin: 8rem 0 0 0;
     padding: 4rem 0;
-    border-top: #EBF2F6 1px solid;
+    border-top: #CBD2D6 1px solid;
     font-family: "Biryani", sans-serif;
     font-size: 1.3rem;
     line-height: 1.7em;
-    color: #BBC7CC;
+    color: #9BA7AC;
     text-align: center;
     background: #F7FAFB;
 }
 
 
 .site-footer a {
-    color: #BBC7CC;
+    color: #9BA7AC;
     text-decoration: underline;
 }
 

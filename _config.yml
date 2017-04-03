@@ -1,10 +1,7 @@
 # theme
-logo: //blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png
-bio: "Engineer @ Akamai - I also build web-based tools, games and interesting experiences."
 
 # Content
 excerpt_link: Read More
 
 # Miscellaneous
 # rss: removed from footer!
-google_analytics:
