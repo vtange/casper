@@ -541,7 +541,6 @@ margin on the iframe, cause it breaks stuff. */
 /* Insert some mad padding up in the header for better spacing */
 .post-template .post-header {
     padding: 60px 0;
-    text-align: center;
 }
 
 .post-template .site-head {

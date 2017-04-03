@@ -1,8 +1,5 @@
 <header class="site-head" <% if (theme.cover) { %> style="background-image: url(<%- theme.cover %>)" <% } %>>
-    <div class="site-head-content inner">
-        <div class="blog-name">
-            <% if (theme.logo) { %><a href="<%- config.root %>"><div class="blog-logo" alt="Blog Logo" style="background-image: url(<%- theme.logo %>)" ></div></a><% } %>
-            <span class="blog-title"><%- config.title %></span>
-        </div>
+    <div class="inner">
+      <%- partial('casper/name') %> 
     </div>
 </header>
