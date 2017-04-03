@@ -374,30 +374,37 @@ margin on the iframe, cause it breaks stuff. */
     width: 100%;
     height: 60%;
     margin-bottom: 5rem;
-    text-align: center;
     color: #fff;
     background: #303538 no-repeat center center;
     background-size: cover;
 }
 
-/* The details of your blog. Defined in ghost/settings/ */
-.blog-title {
-    margin: 10px 0 10px 0;
-    font-size: 5rem;
-    letter-spacing: -1px;
-    font-weight: bold;
-    font-family: "Biryani", sans-serif;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
+/* logo and title */
+.blog-name {
+    margin-top: 3%;
 }
 
-.blog-description {
-    margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.5em;
-    font-weight: 300;
-    font-family: "Cabin", serif;
-    letter-spacing: 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+/* The details of your blog. Defined in ghost/settings/ */
+.blog-title {
+    position: absolute;
+    margin: 10px 0 10px 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-family: "Biryani", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    transform: translateY(2rem);
+    margin-left: 2rem;
+}
+
+.blog-logo {
+    display: inline-block;
+    height:8rem;
+    width:8rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -871,17 +878,11 @@ pre .chunk {
         box-sizing: border-box;
         height: auto;
         min-height: 240px;
-        padding: 15% 0;
     }
 
     .blog-title {
-        font-size: 4rem;
+        font-size: 1.8rem;
         letter-spacing: -1px;
-    }
-
-    .blog-description {
-        font-size: 1.7rem;
-        line-height: 1.5em;
     }
 
     .post {
@@ -923,8 +924,9 @@ pre .chunk {
 
 @media only screen and (max-width: 500px) {
 
-    .blog-logo img {
-        max-height: 80px;
+    .blog-logo {
+        max-height: 6rem;
+        max-width: 6rem;
     }
 
     .inner,
@@ -942,18 +944,11 @@ pre .chunk {
         line-height: 1.6em;
     }
 
-    .site-head {
-        padding: 10% 0;
-    }
-
     .blog-title {
-        font-size: 3rem;
-    }
-
-    .blog-description {
         font-size: 1.5rem;
+        margin-left: 1.2rem;
+        transform: translateY(1.2rem);
     }
-
 
     h1, h2 {
         font-size: 3rem;
