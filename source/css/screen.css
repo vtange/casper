@@ -395,24 +395,26 @@ margin on the iframe, cause it breaks stuff. */
     text-transform: uppercase;
     text-shadow: 0 1px 6px rgba(0,0,0,0.1);
     transform: translateY(2rem);
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .blog-logo {
+    background-size: 80%;
     height:8rem;
     width:8rem;
 }
 
 .blog-logo, .avatar {
     display: inline-block;
-    background-size: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    border-radius: 50%;
 }
 
 .avatar {
+    background-size: 100%;
     height:10rem;
     width:10rem;
+    border-radius: 50%;
     border: 1.6px inset #9BA7AC;
 }
 
