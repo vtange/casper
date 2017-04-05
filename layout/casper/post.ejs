@@ -2,6 +2,20 @@
 <% permalink = config.url + config.root + post.path %>
 <%- partial('casper/postheader') %>
 <main class="content" role="main">
+  <% if (post.title == "Works") { %>
+
+  <div class="works-marker">
+    <article class="post">
+      <h1 class="post-title"><%- post.title %></h1>
+      <section class="post-content">
+        <%- post.content %>
+      </section>
+    </article>
+  </div>
+  <!-- make a single page app for portfolio -->
+
+  <% } else { %>
+
   <article class="post">
     <%- partial('post/meta') %>
     <h1 class="post-title"><%- post.title %></h1>
@@ -10,4 +24,5 @@
     </section>
   </article>
   <%- partial('post/navigation') %>
+  <% } %>
 </main>

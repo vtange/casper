@@ -354,6 +354,7 @@ margin on the iframe, cause it breaks stuff. */
     width: 80%;
     max-width: 700px;
     margin: 0 auto;
+    z-index: 1;
 }
 
 /* Centres vertically yo. (IE8+) */
@@ -372,12 +373,27 @@ margin on the iframe, cause it breaks stuff. */
     position: relative;
     display: table;
     width: 100%;
-    height: 60%;
+    height: 75%;
     margin-bottom: 5rem;
     color: #fff;
     background: #303538 no-repeat center center;
     background-size: cover;
 }
+
+/* Slideshow */
+.slideshow {
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: red;
+}
+
+.slideshow-bg {
+    width:100%;
+    height:100%;
+    background: green;
+}
+
 
 /* logo and title */
 .blog-name {
@@ -550,6 +566,24 @@ margin on the iframe, cause it breaks stuff. */
 
 .site-footer .share a:hover {
     color: #50585D;
+}
+
+
+
+/* ==========================================================================
+   5.5. Portfolio / Works / Gallery
+   ========================================================================== */
+
+.works-marker .post{
+    max-width: none;
+}
+
+.works-marker .post-title{
+    text-align: center;
+}
+
+.works-marker th {
+    font-size: 3rem;
 }
 
 
@@ -833,7 +867,7 @@ pre .chunk {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        height: auto;
+        height: 50%;
         min-height: 240px;
     }
 

@@ -1,4 +1,10 @@
-<header class="site-head" <% if (theme.cover) { %> style="background-image: url(<%- theme.cover %>)" <% } %>>
+<header class="site-head">
+    <div class="slideshow">
+      <a href="<%- config.root %><%- config.portfolio %>">
+        <div class="slideshow-bg">
+        </div>
+      </a>
+    </div>
     <div class="inner">
       <%- partial('casper/name') %> 
     </div>

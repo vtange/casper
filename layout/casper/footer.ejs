@@ -1,6 +1,6 @@
 
 <footer class="site-footer">
-<% if (typeof page.title != 'undefined') { %>
+<% if (typeof page.title != 'undefined' && page.title != "Works") { %>
       <%- partial('post/share') %>
 <% } else { %>
       <%- partial('post/author') %> 

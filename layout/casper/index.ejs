@@ -1,6 +1,7 @@
 
 <main class="content" role="main">
   <% page.posts.each(function(post) { %>
+  <% if (post.title != "Works") { %>
   <article class="post">
     <header class="post-header">
       <%- partial('post/meta', {post: post}) %>
@@ -25,6 +26,7 @@
       <% } %>
     </section>
   </article>
+  <% } %>
   <% }); %>
   <nav class="pagination" role="pagination">
     <% if (page.prev) { %><a class="newer-posts" href="<%- url_for(page.prev_link) %>">← Newer Posts</a><% } %>
