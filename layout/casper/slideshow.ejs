@@ -1,13 +1,11 @@
 <div class="slideshow">
+    <canvas id="slideshow" class="progressiveSlideshow-canvas"></canvas>
     <script type="text/javascript" src="<%- config.root%>js/slideshow.js"></script>
     <% config.featured.forEach(function(slide, index) { %>
     <a href="<%- config.root %><%- slide.url %>">
-    <div class="slideshow-bg">
-        <!--<img src="<%- slide.bg_url %>" class="progressiveMedia"></img><!-- this is a tiny image with a resolution of e.g. ~27x17 and low quality --><!-- or svg in future -->
-        <img src="https://www.clicktorelease.com/images/graphical-web-2016-thumb.png" class="hide-tny-img" onload="loadToCanvas(this)"><!-- this is a tiny image with a resolution of e.g. ~27x17 and low quality --><!-- or svg in future -->
-        <canvas class="progressiveMedia-canvas"></canvas>
-        <img class="progressiveMedia-image js-progressiveMedia-image __web-inspector-hide-shortcut__" data-src="https://cdn-images-1.medium.com/max/1800/1*sg-uLNm73whmdOgKlrQdZA.jpeg">
-    </div>
+        <div class="slideshow-cover">
+            <img class="hide-tny-img" onload="loadToSlideshow(this)" src="<%- slide.mini_url %>" real-src="<%- slide.bg_url %>"><!-- this is a tiny image with a resolution of e.g. ~27x17 and low quality --><!-- or svg in future -->
+        </div>
     </a>
      <% }); %>
 </div>
