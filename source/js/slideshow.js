@@ -2,6 +2,7 @@ function Slideshow(element){
     this.slides = [];//[{mini:<img>,real:<img>}]stores images
     this.currentIdx = null;
     this.offsets = {x:0,y:0};
+    this.centerBias = {x:50,y:50};
     this.canvas = element;
     this.cxt = element.getContext("2d");
 }
@@ -16,8 +17,15 @@ window.addEventListener("resize",function(){
 function loadToSlideshow(img){
     var src = img.getAttribute("src");
     var realsrc = img.getAttribute("real-src");
+    var ctr_x = img.getAttribute("ctr-x");
+    var ctr_y = img.getAttribute("ctr-y");
     var idx = _SS.slides.length;
-    _SS.slides.push({mini:img,real:null});
+    _SS.slides.push({
+        mini:img,
+        real:null,
+        ctr_x:ctr_x,
+        ctr_y:ctr_y
+    });
     img.style.display = "none";
 
     //if null currentIdx, idx = 0, and loadSlide
@@ -53,12 +61,14 @@ Slideshow.prototype.resize = function(img){
         this.canvas.height = img.height;
     }
 
-    offsets.y = Math.min(0,-(img.height-this.canvas.height)/2);
-    offsets.x = Math.min(0,-(img.width-this.canvas.width)/2);
+    offsets.y = Math.min(0,-(img.height-this.canvas.height)*this.centerBias.y/100);
+    offsets.x = Math.min(0,-(img.width-this.canvas.width)*this.centerBias.x/100);
     return offsets;
 }
 
 Slideshow.prototype.load = function(slide){
+    this.centerBias.x = parseInt(slide.ctr_x,10);
+    this.centerBias.y = parseInt(slide.ctr_y,10);
     if(slide.real)
     {
         this.draw(slide.real);
