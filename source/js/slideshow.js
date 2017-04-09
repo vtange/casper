@@ -161,27 +161,25 @@ Slideshow.prototype.drawMulti = function(imgObj, index)
     var scale = [];
 
     //load/animate images (275 tall 400 wide)
-    window.setTimeout(function(){
-        //save blank state
-        this.cxt.save();
+    //save blank state
+    this.cxt.save();
 
-        //set transforms
-        var now = Date.now();
-        var animDurr = 1500;//1.5sec
-        this.cxt.translate(0,-100-yPos[index]);
-        this.cxt.shadowColor = 'rgba(0,0,0,0.1)';
-        this.cxt.shadowBlur = 20;
-        this.cxt.shadowOffsetX = 15;
-        this.cxt.shadowOffsetY = 15;
+    //set transforms
+    var now = Date.now();
+    var animDurr = 1500;//1.5sec
+    this.cxt.translate(0,-100-yPos[index]);
+    this.cxt.shadowColor = 'rgba(0,0,0,0.1)';
+    this.cxt.shadowBlur = 20;
+    this.cxt.shadowOffsetX = 15;
+    this.cxt.shadowOffsetY = 15;
 
-        //draw
-        this.cxt.drawImage(
-            imgObj.img,
-            this.canvas.width/this.slides[this.currentIdx].arrImgs.length*(index-0.5),
-            this.canvas.height-100
-        );
+    //draw
+    this.cxt.drawImage(
+        imgObj.img,
+        this.canvas.width/this.slides[this.currentIdx].arrImgs.length*(index-0.5),
+        this.canvas.height-100
+    );
 
-        //rdy for next img
-        this.cxt.restore();
-    }.bind(this),60*index);
+    //rdy for next img
+    this.cxt.restore();
 }
