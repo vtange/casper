@@ -4,7 +4,21 @@
     <% config.featured.forEach(function(slide, index) { %>
     <a href="<%- config.root %><%- slide.url %>">
         <div class="slideshow-cover">
-            <img class="hide-tny-img" onload="loadToSlideshow(this)" src="<%- slide.mini_url %>" real-src="<%- slide.bg_url %>" ctr-x="<%- slide.ctr_x %>" ctr-y="<%- slide.ctr_y %>"><!-- this is a tiny image with a resolution of e.g. ~27x17 and low quality --><!-- or svg in future -->
+    <% if (slide.multi_url) { %>
+        <% slide.multi_url.forEach(function(url) { %>
+            <script type="text/javascript">
+                loadMulti("<%- url %>",<%- index %>);
+            </script>
+        <% }); %>
+    <% } else { %>
+            <img class="hide-tny-img" onload="loadToSlideshow(this)" 
+            <% if (slide.svg_url) { %>
+                src="<%- slide.svg_url %>"
+            <% } else { %>
+                src="<%- slide.mini_url %>"
+            <% } %>
+             real-src="<%- slide.bg_url %>" ctr-x="<%- slide.ctr_x %>" ctr-y="<%- slide.ctr_y %>"></img>
+    <% } %>
         </div>
     </a>
      <% }); %>
