@@ -11,7 +11,7 @@
             </script>
         <% }); %>
     <% } else { %>
-            <img class="hide-tny-img" onload="loadToSlideshow(this)" 
+            <img class="hide-tny-img" onload="loadToSlideshow(this, <%- index %>)" 
             <% if (slide.svg_url) { %>
                 src="<%- slide.svg_url %>"
             <% } else { %>

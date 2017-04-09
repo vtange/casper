@@ -1,3 +1,8 @@
+<% if (typeof page.title == 'undefined') { %>
+<script type="text/javascript">
+    if(_SS) _SS.load(0);
+</script>
+<% } %>
 <% if (config.google_analytics) { %>
 <script type="text/javascript">
     var _gaq = _gaq || [];
