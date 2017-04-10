@@ -374,17 +374,15 @@ margin on the iframe, cause it breaks stuff. */
     display: table;
     width: 100%;
     height: 75%;
-    margin-bottom: 5rem;
     color: #fff;
-    background: #303538 no-repeat center center;
-    background-size: cover;
+    overflow: hidden;
 }
 
 /* Header Bar */
 .site-head-bar {
     position:relative;
     padding: 0.75%;
-    background-color: rgba(5,0,30,0.53);
+    background: rgba(5,0,30,0.53);
 }
 
 /* Slideshow */
@@ -392,6 +390,9 @@ margin on the iframe, cause it breaks stuff. */
     position: absolute;
     width:100%;
     height:100%;
+    background: #303538 no-repeat center center;
+    background-size: cover;
+    z-index: -1;
 }
 
 .slideshow-cover {
@@ -400,15 +401,31 @@ margin on the iframe, cause it breaks stuff. */
     left:0;
     width:100%;
     height:100%;
+    z-index: -1;
 }
 
 .hide-tny-img {
     visibility: hidden;
 }
 
+.img-floaty {
+    position: absolute;
+    height:275px;
+    width:400px;
+    top:100%;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
 .progressiveSlideshow-canvas {
     width:100%;
     height:100%;
+}
+
+/* Below Slideshow */
+.site-head + main {
+    padding: 1em;
+    background: white;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -482,7 +499,7 @@ margin on the iframe, cause it breaks stuff. */
     bottom: -5px;
     left: 50%;
     margin-left: -5px;
-    background: #fff;
+    background: transparent;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -526,29 +543,6 @@ margin on the iframe, cause it breaks stuff. */
 /* Insert some mad padding up in the header for better spacing */
 .post-template .post-header {
     padding: 60px 0;
-}
-
-.post-template .site-head {
-    color: #303538;
-    border-bottom: #ebf2f6 1px solid;
-    background: none !important;
-}
-
-.post-template .site-head:after {
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    display: block;
-    width: 7px;
-    height: 7px;
-    margin-left: -5px;
-    content: '';
-    border: #e7eef2 1px solid;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    background: #fff;
-    box-shadow: #fff 0 0 0 5px;
 }
 
 /* Keep large images within the bounds of the post-width */
@@ -843,7 +837,6 @@ pre .chunk {
 
 .site-footer {
     position: relative;
-    margin: 8rem 0 0 0;
     padding: 4rem 0;
     border-top: #CBD2D6 1px solid;
     font-family: "Biryani", sans-serif;

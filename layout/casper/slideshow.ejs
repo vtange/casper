@@ -3,7 +3,7 @@
     <script type="text/javascript" src="<%- config.root%>js/slideshow.js"></script>
     <% config.featured.forEach(function(slide, index) { %>
     <a href="<%- config.root %><%- slide.url %>">
-        <div class="slideshow-cover">
+        <div id="slideshow-cover" class="slideshow-cover">
     <% if (slide.multi_url) { %>
         <% slide.multi_url.forEach(function(url) { %>
             <script type="text/javascript">

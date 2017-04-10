@@ -1,63 +1,3 @@
-/*
- * Easing Functions - inspired from http://gizma.com/easing/
- * Found at: https://gist.github.com/gre/1650294#file-easing-js-L17
- * only considering the t value for the range [0, 1] => [0, 1]
- */
-EasingFunctions = {
-  // no easing, no acceleration
-  linear: function (t) { return t },
-  // accelerating from zero velocity
-  easeInQuad: function (t) { return t*t },
-  // decelerating to zero velocity
-  easeOutQuad: function (t) { return t*(2-t) },
-  // acceleration until halfway, then deceleration
-  easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
-  // accelerating from zero velocity 
-  easeInCubic: function (t) { return t*t*t },
-  // decelerating to zero velocity 
-  easeOutCubic: function (t) { return (--t)*t*t+1 },
-  // acceleration until halfway, then deceleration 
-  easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
-  // accelerating from zero velocity 
-  easeInQuart: function (t) { return t*t*t*t },
-  // decelerating to zero velocity 
-  easeOutQuart: function (t) { return 1-(--t)*t*t*t },
-  // acceleration until halfway, then deceleration
-  easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
-  // accelerating from zero velocity
-  easeInQuint: function (t) { return t*t*t*t*t },
-  // decelerating to zero velocity
-  easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
-  // acceleration until halfway, then deceleration 
-  easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
-}
-// shim layer for requestAnimationFrame
-(function() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame =
-          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-              timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-}());
-/*-------------------LIB^---------------------*/
-
 function Slideshow(element){
     this.slides = [];//[{mini:<img>,real:<img>}]stores images
     this.currentIdx = null;
@@ -147,6 +87,7 @@ Slideshow.prototype.resize = function(img){
 
 Slideshow.prototype.load = function(index){
     var tis = this;
+    var cover = document.getElementById("slideshow-cover");
     var slide = this.slides[index];
     var isReload = this.currentIdx == index;
     this.currentIdx = index;
@@ -159,7 +100,7 @@ Slideshow.prototype.load = function(index){
 
         if(slide.real)
         {
-            this.drawSingle(slide.real);
+            //overwrite canvas with div
         }
         else
         {
@@ -169,39 +110,16 @@ Slideshow.prototype.load = function(index){
             slide.real = new Image();
             slide.real.src = slide.mini.getAttribute("real-src");
             slide.real.onload = function(){
-                this.load(slide);
+                //overwrite canvas with div
             }.bind(this);
         }
     }
     else
     {
-        //standard canvas width
-        this.canvas.width = this.canvas.clientWidth;
-        this.canvas.height = this.canvas.clientHeight;
-        
-        //if first draw
         if(!isReload)
         {
             slide.arrImgs.forEach(function(imgObj,index){
-                if(!imgObj.img)
-                {
-                    imgObj.img = new Image();
-                    imgObj.img.src = imgObj.src;
-                    imgObj.img.onload = function(){
-                        tis.drawMulti(imgObj,index,true);
-                    }
-                }
-                else
-                {
-                    tis.drawMulti(imgObj,index,true);
-                }
-
-            });
-        }
-        else
-        {
-            slide.arrImgs.forEach(function(imgObj,index){
-                tis.drawMulti(imgObj,index);
+                tis.drawMulti(imgObj,index,cover);
             });
         }
     }
@@ -216,38 +134,19 @@ Slideshow.prototype.drawSingle = function(img)
     this.cxt.drawImage(img,this.offsets.x,this.offsets.y);
 }
 
-Slideshow.prototype.drawMulti = function(imgObj, index, bAnim)
+Slideshow.prototype.drawMulti = function(imgObj, index, cover)
 {
     var yPos = [600, 290, 395, 640, 500, 300, 650, 240, 545, 410, 700, 260];
     var scale = [];
 
-    //load/animate images (275 tall 400 wide)
-    //save blank state
-    this.cxt.save();
-
-    //set transforms
-    var timer = 0, trans;
-    var animDurr = 1500;//1.5sec
-    if(bAnim)
-    {
-        this.cxt.translate(0, 0-yPos[index]*trans);
-    }
-    else
-    {
-        this.cxt.translate(0, 0-yPos[index]);
-    }
-    this.cxt.shadowColor = 'rgba(0,0,0,0.1)';
-    this.cxt.shadowBlur = 20;
-    this.cxt.shadowOffsetX = 15;
-    this.cxt.shadowOffsetY = 15;
-
-    //draw
-    this.cxt.drawImage(
-        imgObj.img,
-        this.canvas.width/this.slides[this.currentIdx].arrImgs.length*(index-0.5),
-        this.canvas.height
-    );
-
-    //rdy for next img
-    this.cxt.restore();
+    //build divs with images
+    var div = document.createElement("div");
+    div.classList.add("img-floaty");
+    div.style.backgroundImage = "url("+imgObj.src+")";
+    div.style.left = 100*(this.canvas.clientWidth/this.slides[this.currentIdx].arrImgs.length*(index-0.5))/this.canvas.clientWidth+"%";
+    cover.appendChild(div);
+    window.setTimeout(function(){
+        div.style.opacity = 1;
+        div.style.transform = "translateY(-"+yPos[index]+"px)";
+    },30*index);
 }
