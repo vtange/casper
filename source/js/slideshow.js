@@ -1,3 +1,63 @@
+/*
+ * Easing Functions - inspired from http://gizma.com/easing/
+ * Found at: https://gist.github.com/gre/1650294#file-easing-js-L17
+ * only considering the t value for the range [0, 1] => [0, 1]
+ */
+EasingFunctions = {
+  // no easing, no acceleration
+  linear: function (t) { return t },
+  // accelerating from zero velocity
+  easeInQuad: function (t) { return t*t },
+  // decelerating to zero velocity
+  easeOutQuad: function (t) { return t*(2-t) },
+  // acceleration until halfway, then deceleration
+  easeInOutQuad: function (t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+  // accelerating from zero velocity 
+  easeInCubic: function (t) { return t*t*t },
+  // decelerating to zero velocity 
+  easeOutCubic: function (t) { return (--t)*t*t+1 },
+  // acceleration until halfway, then deceleration 
+  easeInOutCubic: function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 },
+  // accelerating from zero velocity 
+  easeInQuart: function (t) { return t*t*t*t },
+  // decelerating to zero velocity 
+  easeOutQuart: function (t) { return 1-(--t)*t*t*t },
+  // acceleration until halfway, then deceleration
+  easeInOutQuart: function (t) { return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t },
+  // accelerating from zero velocity
+  easeInQuint: function (t) { return t*t*t*t*t },
+  // decelerating to zero velocity
+  easeOutQuint: function (t) { return 1+(--t)*t*t*t*t },
+  // acceleration until halfway, then deceleration 
+  easeInOutQuint: function (t) { return t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t }
+}
+// shim layer for requestAnimationFrame
+(function() {
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame =
+          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+}());
+/*-------------------LIB^---------------------*/
+
 function Slideshow(element){
     this.slides = [];//[{mini:<img>,real:<img>}]stores images
     this.currentIdx = null;
@@ -128,20 +188,21 @@ Slideshow.prototype.load = function(index){
                     imgObj.img = new Image();
                     imgObj.img.src = imgObj.src;
                     imgObj.img.onload = function(){
-                        tis.drawMulti(imgObj,index);
+                        tis.drawMulti(imgObj,index,true);
                     }
                 }
                 else
                 {
-                    tis.drawMulti(imgObj,index);
+                    tis.drawMulti(imgObj,index,true);
                 }
 
             });
         }
         else
         {
-
-
+            slide.arrImgs.forEach(function(imgObj,index){
+                tis.drawMulti(imgObj,index);
+            });
         }
     }
 }
@@ -155,9 +216,9 @@ Slideshow.prototype.drawSingle = function(img)
     this.cxt.drawImage(img,this.offsets.x,this.offsets.y);
 }
 
-Slideshow.prototype.drawMulti = function(imgObj, index)
+Slideshow.prototype.drawMulti = function(imgObj, index, bAnim)
 {
-    var yPos = [400, 90, 195, 440, 300, 100, 450, 40, 345, 210, 500, 60];
+    var yPos = [600, 290, 395, 640, 500, 300, 650, 240, 545, 410, 700, 260];
     var scale = [];
 
     //load/animate images (275 tall 400 wide)
@@ -165,9 +226,16 @@ Slideshow.prototype.drawMulti = function(imgObj, index)
     this.cxt.save();
 
     //set transforms
-    var now = Date.now();
+    var timer = 0, trans;
     var animDurr = 1500;//1.5sec
-    this.cxt.translate(0,-100-yPos[index]);
+    if(bAnim)
+    {
+        this.cxt.translate(0, 0-yPos[index]*trans);
+    }
+    else
+    {
+        this.cxt.translate(0, 0-yPos[index]);
+    }
     this.cxt.shadowColor = 'rgba(0,0,0,0.1)';
     this.cxt.shadowBlur = 20;
     this.cxt.shadowOffsetX = 15;
@@ -177,7 +245,7 @@ Slideshow.prototype.drawMulti = function(imgObj, index)
     this.cxt.drawImage(
         imgObj.img,
         this.canvas.width/this.slides[this.currentIdx].arrImgs.length*(index-0.5),
-        this.canvas.height-100
+        this.canvas.height
     );
 
     //rdy for next img
