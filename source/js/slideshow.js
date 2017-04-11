@@ -119,7 +119,18 @@ Slideshow.prototype.load = function(index){
         if(!isReload)
         {
             slide.arrImgs.forEach(function(imgObj,index){
-                tis.drawMulti(imgObj,index,cover);
+                if(!imgObj.img)
+                {
+                    imgObj.img = new Image();
+                    imgObj.img.src = imgObj.src;
+                    imgObj.img.onload = function(){
+                        tis.drawMulti(imgObj,index,cover);
+                    }
+                }
+                else
+                {
+                    tis.drawMulti(imgObj,index,cover);
+                }
             });
         }
     }
