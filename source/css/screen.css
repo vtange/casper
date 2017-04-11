@@ -432,7 +432,7 @@ margin on the iframe, cause it breaks stuff. */
     position: relative;
     width: 50%;
     margin: auto;
-    margin-top: 20rem;
+    margin-top: 15rem;
     color: white;
     padding: 5rem;
     padding-bottom: 7rem;
@@ -907,7 +907,7 @@ pre .chunk {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        height: 50%;
+        height: 75%;
         min-height: 240px;
     }
 
@@ -917,14 +917,13 @@ pre .chunk {
     }
 
     .img-floaty {
-        top:150%;
+        top:120%;
         width: 218px;
         height: 150px;
     }
 
     .slide-descriptor {
         padding: 3rem;
-        margin-top: 15rem;
     }
 
     .slide-descriptor p {
@@ -969,6 +968,11 @@ pre .chunk {
 
 
 @media only screen and (max-width: 500px) {
+
+   .site-head {
+        height: 83%;
+        min-height: 240px;
+    }
 
     .blog-logo {
         max-height: 6rem;
