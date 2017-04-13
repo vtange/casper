@@ -623,10 +623,46 @@ margin on the iframe, cause it breaks stuff. */
     text-align: center;
 }
 
-.works-marker th {
-    font-size: 3rem;
+.works-marker .post-content span{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
 }
 
+.works-marker img {
+    transition: all 0.4s ease;
+    margin: 2rem;
+}
+
+.works-marker img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.item-viewer {
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background: rgba(0,0,20,0.5);
+}
+
+.boxclose:hover{
+    text-decoration: none;
+}
+a.boxclose{
+    position: absolute;
+    top:3rem;
+    right:5rem;
+    cursor:pointer;
+    color: white;
+    font-size: 10rem;
+    z-index: 9999;
+}
+.boxclose:before{
+    content: "×";
+}
 
 /* ==========================================================================
    6. Third Party Elements - Embeds from other services
