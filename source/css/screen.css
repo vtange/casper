@@ -153,7 +153,7 @@ a {
     transition: color ease 0.3s;
 }
 
-a:hover {
+a:hover, .slide-descriptor:hover {
     color: #57A3E8;
 }
 
@@ -438,6 +438,7 @@ margin on the iframe, cause it breaks stuff. */
     padding-bottom: 7rem;
     border-radius: 1rem;
     z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .slide-descriptor > h2:after {
@@ -445,11 +446,6 @@ margin on the iframe, cause it breaks stuff. */
     right:10%;
     bottom:10%;
     content: ">";
-}
-
-.slide-descriptor:hover {
-    transition: all 0.3s ease;
-    text-shadow:0px 0px 2px white;
 }
 
 .slide-descriptor, .site-head-bar {
@@ -630,7 +626,7 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .works-marker img {
-    transition: all 0.4s ease;
+    transition: all 0.25s ease;
     margin: 2rem;
 }
 
@@ -639,30 +635,91 @@ margin on the iframe, cause it breaks stuff. */
     cursor: pointer;
 }
 
-.item-viewer {
-    position: fixed;
-    top:0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    background: rgba(0,0,20,0.5);
+.work-desc-popup {
+    position:absolute;
+    background: white;
+    padding:1.6rem;
+    border: 4px solid coral;
+    border-radius: 1.6rem;
+    box-shadow: 2px 5px 5px rgba(25,25,25,0.2);
 }
 
-.boxclose:hover{
-    text-decoration: none;
+.work-desc-popup h5 {
+    padding-right: 1.2rem;
+    margin-bottom: 2rem;
 }
-a.boxclose{
+
+
+.arrow {
+    border: solid coral;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 4px;
+    vertical-align: middle;
+
+/*custom to popup*/
     position: absolute;
-    top:3rem;
-    right:5rem;
-    cursor:pointer;
-    color: white;
-    font-size: 10rem;
-    z-index: 9999;
+    top: -14px;
+    left: 24px;
+    background-color: white;
+    width: 10px;
+    height: 10px;
 }
-.boxclose:before{
-    content: "×";
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
 }
+
+.popup-anim {
+    -webkit-animation: popAnim 0.2s;
+    animation: popAnim 0.2s;
+}
+
+@keyframes popAnim {
+    0% {    opacity: 0.5;
+            transform: translateY(0px);
+   }
+   40% {    opacity: 0.75;
+            transform: translateY(10px);
+   }
+   70% {    opacity: 1;
+            transform: translateY(5px);
+   }
+  100% {    opacity: 1;
+            transform: translateY(0px);
+  }
+  }
+@-webkit-keyframes popAnim {
+    0% {    opacity: 0.5;
+            transform: translateY(0px);
+   }
+   40% {    opacity: 0.75;
+            transform: translateY(10px);
+   }
+   70% {    opacity: 1;
+            transform: translateY(5px);
+   }
+  100% {    opacity: 1;
+            transform: translateY(0px);
+  }
+  }
+
+    .boxclose:hover{
+        text-decoration: none;
+    }
+    a.boxclose{
+        position: absolute;
+        top:10px;
+        right:15px;
+        cursor:pointer;
+        color:#CBD2D6;
+        font-size: 5rem;
+        z-index: 9999;
+    }
+    .boxclose:before{
+        content: "×";
+    }
 
 /* ==========================================================================
    6. Third Party Elements - Embeds from other services
