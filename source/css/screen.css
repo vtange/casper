@@ -713,7 +713,7 @@ margin on the iframe, cause it breaks stuff. */
         top:10px;
         right:15px;
         cursor:pointer;
-        color:#CBD2D6;
+        color:coral;
         font-size: 5rem;
         z-index: 9999;
     }
