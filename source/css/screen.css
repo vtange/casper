@@ -384,8 +384,10 @@ margin on the iframe, cause it breaks stuff. */
 
 /* Header Bar */
 .site-head-bar {
-    position:relative;
+    position:fixed;
+    width:100%;
     padding: 0.75%;
+    z-index: 9999;
 }
 
 /* Slideshow */
@@ -456,7 +458,7 @@ margin on the iframe, cause it breaks stuff. */
 .site-head + main {
     position: relative;
     padding: 1em;
-    background: white;
+    background: #FFF1E8;
     z-index: 1;
 }
 
@@ -491,7 +493,7 @@ margin on the iframe, cause it breaks stuff. */
     height:10rem;
     width:10rem;
     border-radius: 50%;
-    border: 1.6px inset #9BA7AC;
+    border: 1.6px inset #FFF1E8;
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -967,18 +969,18 @@ pre .chunk {
 .site-footer {
     position: relative;
     padding: 4rem 0;
-    border-top: #CBD2D6 1px solid;
     font-family: "Biryani", sans-serif;
     font-size: 1.3rem;
     line-height: 1.7em;
-    color: #9BA7AC;
+    color: #FFF1E8;
     text-align: center;
-    background: #F7FAFB;
+    background: #433633;
+    box-shadow: inset 0 7px 21px -7px rgba(0,0,0,0.7);
 }
 
 
 .site-footer a {
-    color: #9BA7AC;
+    color: #FFF1E8;
     text-decoration: underline;
 }
 
